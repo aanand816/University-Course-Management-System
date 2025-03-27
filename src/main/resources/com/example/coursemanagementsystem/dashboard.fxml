@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.Region?>
+
+<StackPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursemanagementsystem.DashboardController">
+   <children>
+      <AnchorPane stylesheets="@dashboard.css">
+         <children>
+            <!-- Top Header -->
+            <HBox styleClass="upperHeading" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+               <children>
+                  <ImageView fitHeight="44.0" fitWidth="44.0" styleClass="icon">
+                     <image>
+                        <Image url="@admin.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="headerLabel" styleClass="header-label" text="Course Management System" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Region HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+
+            <!-- Sidebar -->
+            <AnchorPane fx:id="sidebar" styleClass="upperHeading" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="58" AnchorPane.bottomAnchor="0" prefWidth="173.0">
+               <children>
+                  <ImageView fitHeight="101.0" fitWidth="106.0" styleClass="sidebar-icon" AnchorPane.topAnchor="94.0" AnchorPane.leftAnchor="34.0">
+                     <image>
+                        <Image url="@admin2.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="welcomeLabel" styleClass="sidebar-label" text="Welcome Admin!" textFill="WHITE" AnchorPane.topAnchor="195.0" AnchorPane.leftAnchor="14.0" />
+                  <Button fx:id="courseBtn" onAction="#showCoursePane" styleClass="sidebar-button" text="Course" prefWidth="90.0" AnchorPane.topAnchor="242.0" AnchorPane.leftAnchor="34.0" />
+                  <Button fx:id="instructorBtn" onAction="#showInstructorPane" styleClass="sidebar-button" text="Instructor" prefWidth="92.0" AnchorPane.topAnchor="287.0" AnchorPane.leftAnchor="33.0" />
+                  <Button fx:id="studentBtn" onAction="#showStudentPane" styleClass="sidebar-button" text="Student" prefWidth="92.0" AnchorPane.topAnchor="334.0" AnchorPane.leftAnchor="33.0" />
+                  <Button fx:id="logoutBtn" onAction="#logout" styleClass="logout-btn" text="Logout" prefWidth="90.0" AnchorPane.topAnchor="384.0" AnchorPane.leftAnchor="34.0" />
+               </children>
+            </AnchorPane>
+
+            <!-- Course Management Pane -->
+            <AnchorPane fx:id="courseManagementPane" stylesheets="@dashboard.css" AnchorPane.leftAnchor="173.0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="58" AnchorPane.bottomAnchor="0" visible="true">
+               <children>
+                  <HBox alignment="CENTER" spacing="10.0" styleClass="button-container" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="0">
+                     <children>
+                        <Button fx:id="addCourseBtn" onAction="#addCourseAction" styleClass="action-button" text="Add Course" />
+                        <Button fx:id="removeCourseBtn" onAction="#removeCourseAction" styleClass="action-button" text="Remove Course" />
+                        <Button fx:id="modifyCourseBtn" onAction="#modifyCourseAction" styleClass="action-button" text="Modify Course" />
+                        <Button fx:id="removeStudentBtn" onAction="#removeCourseStudentAction" styleClass="action-button" text="Remove Student" />
+                        <Button fx:id="removeInstructorBtn" onAction="#removeCourseInstructorAction" styleClass="action-button" text="Remove Instructor" />
+                        <Button fx:id="viewCourseBtn" onAction="#viewCourseAction" styleClass="action-button" text="View Course" />
+                        <Button fx:id="allCoursesBtn" onAction="#allCoursesAction" styleClass="action-button" text="All Courses" />
+                        <Button fx:id="closeCourseBtn" onAction="#closeaction" styleClass="closer" text="Close" />
+                     </children>
+                  </HBox>
+
+                  <!-- Add Course Form -->
+                  <AnchorPane fx:id="addCourseForm" styleClass="form-pane" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="54.0">
+                     <children>
+                        <Label styleClass="form-label" text="Course ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="courseIdField" promptText="Enter Course ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="10.0" />
+                        <Label styleClass="form-label" text="Course Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="45.0" />
+                        <TextField fx:id="courseNameField" promptText="Enter Course Name" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="45.0" />
+                        <Label styleClass="form-label" text="Credits:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
+                        <TextField fx:id="creditsField" promptText="Enter Credits" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="80.0" />
+                        <Label styleClass="form-label" text="Max Students:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="115.0" />
+                        <TextField fx:id="maxStudentsField" promptText="Enter Max Students" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="115.0" />
+                        <Button onAction="#addCourse" styleClass="form-button" text="Add Course" prefWidth="120.0" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="160.0" />
+                        <TextArea fx:id="courseDataTextArea" editable="false" styleClass="form-textarea" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="200.0" />
+                     </children>
+                  </AnchorPane>
+
+                  <!-- Remove Course Form -->
+                  <AnchorPane fx:id="removeCourseForm" styleClass="form-pane" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="54.0">
+                     <children>
+                        <Label styleClass="form-label" text="Course ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="removeCourseIdField" promptText="Enter Course ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="10.0" />
+                        <Button onAction="#removeCourse" styleClass="form-button" text="Remove Course" prefWidth="120.0" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="50.0" />
+                        <TextArea fx:id="removeCourseDataTextArea" editable="false" styleClass="form-textarea" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0" />
+                     </children>
+                  </AnchorPane>
+
+                  <!-- Remove Student Form -->
+                  <AnchorPane fx:id="removeCourseStudentForm" styleClass="form-pane" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="54.0">
+                     <children>
+                        <Label styleClass="form-label" text="Course ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="removeStudentCourseIdField" promptText="Enter Course ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="10.0" />
+                        <Label styleClass="form-label" text="Student ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="45.0" />
+                        <TextField fx:id="removeCourseStudentIdField" promptText="Enter Student ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="45.0" />
+                        <Button onAction="#removeStudentFromCourse" styleClass="form-button" text="Remove Student" prefWidth="160.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="80.0" />
+                        <TextArea fx:id="removeStudentStatusArea" editable="false" styleClass="form-textarea" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="130.0" />
+                     </children>
+                  </AnchorPane>
+
+                  <!-- Remove Instructor Form -->
+                  <AnchorPane fx:id="removeCourseInstructorForm" styleClass="form-pane" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="54.0">
+                     <children>
+                        <Label styleClass="form-label" text="Course ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="removeInstructorCourseIdField" promptText="Enter Course ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="10.0" />
+                        <Button onAction="#removeInstructorFromCourse" styleClass="form-button" text="Remove Instructor" prefWidth="180.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="45.0" />
+                        <TextArea fx:id="removeInstructorStatusArea" editable="false" styleClass="form-textarea" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="90.0" />
+                     </children>
+                  </AnchorPane>
+
+                  <!-- Modify Course Form -->
+                  <AnchorPane fx:id="modifyCourseForm" styleClass="form-pane" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="54.0">
+                     <children>
+                        <Label styleClass="form-label" text="Course ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="modifyCourseIdField" promptText="Enter Course ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="10.0" />
+                        <Button onAction="#loadCourseDetails" styleClass="form-button" text="Load Course" prefWidth="120.0" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="10.0" />
+                        <Label styleClass="form-label" text="New Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="45.0" />
+                        <TextField fx:id="modifyCourseNameField" promptText="Enter New Name" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="45.0" />
+                        <Label styleClass="form-label" text="New Credits:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
+                        <TextField fx:id="modifyCreditsField" promptText="Enter New Credits" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="80.0" />
+                        <Label styleClass="form-label" text="New Max Students:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="115.0" />
+                        <TextField fx:id="modifyMaxStudentsField" promptText="Enter New Max Students" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="115.0" />
+                        <Button onAction="#modifyCourse" styleClass="form-button" text="Modify Course" prefWidth="120.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="160.0" />
+                        <TextArea fx:id="modifyCourseDataTextArea" editable="false" styleClass="form-textarea" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="200.0" />
+                     </children>
+                  </AnchorPane>
+
+                  <!-- View Course Form -->
+                  <AnchorPane fx:id="viewCourseForm" styleClass="form-pane" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="54.0">
+                     <children>
+                        <Label styleClass="form-label" text="Course ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="viewCourseIdField" promptText="Enter Course ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="10.0" />
+                        <Button onAction="#viewCourse" styleClass="form-button" text="View Course" prefWidth="120.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="10.0" />
+                        <TextArea fx:id="courseDetailsArea" editable="false" styleClass="form-textarea" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
+                     </children>
+                  </AnchorPane>
+
+                  <!-- View All Courses Form -->
+                  <AnchorPane fx:id="viewAllCourseForm" styleClass="form-pane" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="54.0">
+                     <children>
+                        <Button onAction="#displayAllCourses" styleClass="form-button" text="Load Courses" AnchorPane.leftAnchor="20" AnchorPane.topAnchor="20" />
+                        <TextArea fx:id="allCoursesArea" editable="false" styleClass="form-textarea" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+
+            <!-- Instructor Management Pane -->
+            <AnchorPane fx:id="InstructorManagementPane" visible="false" AnchorPane.leftAnchor="173.0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="58" AnchorPane.bottomAnchor="0">
+               <children>
+                  <HBox spacing="20.0" styleClass="button-container" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                     <children>
+                        <Button fx:id="addInstructorBtn" onAction="#addInstructorAction" styleClass="action-button" text="Add Instructor" />
+                        <Button fx:id="removeInstructorBtn2" onAction="#removeInstructorAction" styleClass="action-button" text="Remove Instructor" />
+                        <Button fx:id="modifyInstructorBtn" onAction="#modifyInstructorAction" styleClass="action-button" text="Modify Instructor" />
+                        <Button fx:id="viewInstructorBtn" onAction="#viewInstructorAction" styleClass="action-button" text="View Instructor" />
+                        <Button fx:id="assignInstructorBtn" onAction="#assignInstructorAction" styleClass="action-button" text="Assign Instructor" />
+                        <Button fx:id="closeInstructorBtn" onAction="#closeaction" styleClass="closer" text="Close" />
+                     </children>
+                  </HBox>
+
+                  <!-- Add Instructor Form -->
+                  <AnchorPane fx:id="addInstructorForm" styleClass="form-pane" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="60.0">
+                     <children>
+                        <Label styleClass="form-label" text="Instructor ID:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="instructorIdField" promptText="Enter Instructor ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="10.0" />
+                        <Label styleClass="form-label" text="Name:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="45.0" />
+                        <TextField fx:id="instructorNameField" promptText="Enter Name" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="45.0" />
+                        <Label styleClass="form-label" text="Email:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0" />
+                        <TextField fx:id="instructorEmailField" promptText="Enter Email" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="80.0" />
+                        <Button onAction="#addInstructor" styleClass="form-button" text="Add Instructor" prefWidth="120.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="120.0" />
+                        <TextArea fx:id="instructorDataTextArea" editable="false" styleClass="form-textarea" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="160.0" />
+                     </children>
+                  </AnchorPane>
+
+                  <!-- Remove Instructor Form -->
+                  <AnchorPane fx:id="removeInstructorForm" styleClass="form-pane" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="60.0">
+                     <children>
+                        <Label styleClass="form-label" text="Instructor ID:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="removeInstructorIdField" promptText="Enter Instructor ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="10.0" />
+                        <Button onAction="#removeInstructor" styleClass="form-button" text="Remove Instructor" prefWidth="150.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="50.0" />
+                        <TextArea fx:id="removeInstructorDataTextArea" editable="false" styleClass="form-textarea" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0" />
+                     </children>
+                  </AnchorPane>
+
+                  <!-- Modify Instructor Form -->
+                  <AnchorPane fx:id="modifyInstructorForm" styleClass="form-pane" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="60.0">
+                     <children>
+                        <Label styleClass="form-label" text="Instructor ID:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="modifyInstructorIdField" promptText="Enter Instructor ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="10.0" />
+                        <Button onAction="#loadInstructorDetails" styleClass="form-button" text="Load Instructor" prefWidth="120.0" AnchorPane.leftAnchor="410.0" AnchorPane.topAnchor="10.0" />
+                        <Label styleClass="form-label" text="New Name:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="45.0" />
+                        <TextField fx:id="modifyInstructorNameField" promptText="Enter New Name" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="45.0" />
+                        <Label styleClass="form-label" text="New Email:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0" />
+                        <TextField fx:id="modifyInstructorEmailField" promptText="Enter New Email" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="80.0" />
+                        <Label styleClass="form-label" text="New Course Assigned:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="115.0" />
+                        <TextField fx:id="modifyInstructorCourseField" promptText="Enter New Course" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="115.0" />
+                        <Button onAction="#modifyInstructor" styleClass="form-button" text="Modify Instructor" prefWidth="150.0" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="160.0" />
+                        <TextArea fx:id="modifyInstructorDataTextArea" editable="false" styleClass="form-textarea" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="200.0" />
+                     </children>
+                  </AnchorPane>
+
+                  <!-- View Instructor Form -->
+                  <AnchorPane fx:id="viewInstructorForm" styleClass="form-pane" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="60.0">
+                     <children>
+                        <Label styleClass="form-label" text="Instructor ID:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="viewInstructorIdField" promptText="Enter Instructor ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="10.0" />
+                        <Button onAction="#viewInstructor" styleClass="form-button" text="View Instructor" prefWidth="120.0" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="10.0" />
+                        <TextArea fx:id="instructorDetailsArea" editable="false" styleClass="form-textarea" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
+                     </children>
+                  </AnchorPane>
+
+                  <!-- Assign Instructor Form -->
+                  <AnchorPane fx:id="assignInstructorForm" styleClass="form-pane" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="60.0">
+                     <children>
+                        <Label styleClass="form-label" text="Course ID:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="assignCourseIdField" promptText="Enter Course ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="10.0" />
+                        <Label styleClass="form-label" text="Instructor ID:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="45.0" />
+                        <TextField fx:id="assignInstructorIdField" promptText="Enter Instructor ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="45.0" />
+                        <Button onAction="#assignInstructor" styleClass="form-button" text="Assign Instructor" prefWidth="150.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="80.0" />
+                        <TextArea fx:id="assignInstructorDataTextArea" editable="false" styleClass="form-textarea" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="120.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+
+            <!-- Student Management Pane -->
+            <AnchorPane fx:id="StudentManagementPane" visible="false" AnchorPane.leftAnchor="173.0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="58" AnchorPane.bottomAnchor="0">
+               <children>
+                  <HBox spacing="20.0" styleClass="button-container" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                     <children>
+                        <Button fx:id="addStudentBtn" onAction="#addStudentAction" styleClass="action-button" text="Add Student" />
+                        <Button fx:id="removeStudentBtn2" onAction="#removeStudentAction" styleClass="action-button" text="Remove Student" />
+                        <Button fx:id="modifyStudentBtn" onAction="#modifyStudentAction" styleClass="action-button" text="Modify Student" />
+                        <Button fx:id="viewStudentBtn" onAction="#viewStudentAction" styleClass="action-button" text="View Student" />
+                        <Button fx:id="enrollStudentBtn" onAction="#enrollStudentAction" styleClass="action-button" text="Enroll Student" />
+                        <Button fx:id="closeStudentBtn" onAction="#closeaction" styleClass="closer" text="Close" />
+                     </children>
+                  </HBox>
+
+                  <!-- Add Student Form -->
+                  <AnchorPane fx:id="addStudentForm" styleClass="form-pane" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="60.0">
+                     <children>
+                        <Label styleClass="form-label" text="Student ID:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="studentIdField" promptText="Enter Student ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="10.0" />
+                        <Label styleClass="form-label" text="Name:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="45.0" />
+                        <TextField fx:id="studentNameField" promptText="Enter Name" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="45.0" />
+                        <Label styleClass="form-label" text="Email:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0" />
+                        <TextField fx:id="studentEmailField" promptText="Enter Email" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="80.0" />
+                        <Button onAction="#addStudent" styleClass="form-button" text="Add Student" prefWidth="120.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="115.0" />
+                        <TextArea fx:id="studentDataTextArea" editable="false" styleClass="form-textarea" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="150.0" />
+                     </children>
+                  </AnchorPane>
+
+                  <!-- Remove Student Form -->
+                  <AnchorPane fx:id="removeStudentForm" styleClass="form-pane" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="60.0">
+                     <children>
+                        <Label styleClass="form-label" text="Student ID:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="removeStudentIdField" promptText="Enter Student ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="10.0" />
+                        <Button onAction="#removeStudent" styleClass="form-button" text="Remove Student" prefWidth="150.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="50.0" />
+                        <TextArea fx:id="removeStudentDataTextArea" editable="false" styleClass="form-textarea" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0" />
+                     </children>
+                  </AnchorPane>
+
+                  <!-- Modify Student Form -->
+                  <AnchorPane fx:id="modifyStudentForm" styleClass="form-pane" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="60.0">
+                     <children>
+                        <Label styleClass="form-label" text="Student ID:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="modifyStudentIdField" promptText="Enter Student ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="10.0" />
+                        <Button onAction="#loadStudentDetails" styleClass="form-button" text="Load Student" prefWidth="120.0" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="10.0" />
+                        <Label styleClass="form-label" text="New Name:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="45.0" />
+                        <TextField fx:id="modifyStudentNameField" promptText="Enter New Name" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="45.0" />
+                        <Label styleClass="form-label" text="New Email:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0" />
+                        <TextField fx:id="modifyStudentEmailField" promptText="Enter New Email" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="80.0" />
+                        <Button onAction="#modifyStudent" styleClass="form-button" text="Modify Student" prefWidth="120.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="115.0" />
+                        <TextArea fx:id="modifyStudentDataTextArea" editable="false" styleClass="form-textarea" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="150.0" />
+                     </children>
+                  </AnchorPane>
+
+                  <!-- View Student Form -->
+                  <AnchorPane fx:id="viewStudentForm" styleClass="form-pane" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="60.0">
+                     <children>
+                        <Label styleClass="form-label" text="Student ID:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="viewStudentIdField" promptText="Enter Student ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="10.0" />
+                        <Button onAction="#viewStudent" styleClass="form-button" text="View Student" prefWidth="120.0" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="10.0" />
+                        <TextArea fx:id="studentDetailsArea" editable="false" styleClass="form-textarea" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
+                     </children>
+                  </AnchorPane>
+
+                  <!-- Enroll Student Form -->
+                  <AnchorPane fx:id="enrollStudentForm" styleClass="form-pane" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="60.0">
+                     <children>
+                        <Label styleClass="form-label" text="Course ID:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="enrollCourseIdField" promptText="Enter Course ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="10.0" />
+                        <Label styleClass="form-label" text="Student ID:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="45.0" />
+                        <TextField fx:id="enrollStudentIdField" promptText="Enter Student ID" styleClass="form-field" prefWidth="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="45.0" />
+                        <Button onAction="#enrollStudent" styleClass="form-button" text="Enroll Student" prefWidth="120.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="80.0" />
+                        <TextArea fx:id="enrollStudentDataTextArea" editable="false" styleClass="form-textarea" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="120.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

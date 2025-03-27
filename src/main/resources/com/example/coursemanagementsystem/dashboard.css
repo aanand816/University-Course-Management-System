@@ -1,0 +1,166 @@
+/* Root styling */
+.root {
+    -fx-font-family: "System";
+}
+
+/* Top header */
+.upperHeading {
+    -fx-background-color: linear-gradient(to bottom right, #272b3f, #256b51);
+    -fx-padding: 10;
+}
+
+/* Icon styling */
+.icon {
+    -fx-fill: white;
+    -fx-stroke: white;
+    -fx-stroke-width: 2px;
+}
+
+/* Header label */
+.header-label {
+    -fx-font-size: 18px; /* Base size */
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+/* Sidebar label */
+.sidebar-label {
+    -fx-font-size: 18px; /* Base size */
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+/* Sidebar buttons */
+.sidebar-button {
+    -fx-background-color: #3D8B74;
+    -fx-height: 40px;
+    -fx-width:100px;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px; /* Base size */
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-padding: 5 10;
+}
+
+.sidebar-button:hover {
+    -fx-text-fill: white;
+    -fx-background-color: #2E6B5A;
+    -fx-effect: dropshadow(gaussian, rgba(61, 139, 116, 0.4), 12, 0, 0, 0);
+}
+
+/* Logout button */
+.logout-btn {
+    -fx-background-color: #3D8B74;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px; /* Base size */
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-padding: 5 10;
+}
+
+.logout-btn:hover {
+    -fx-background-color: #ff3547;
+    -fx-text-fill: white;
+}
+
+/* Management panes */
+#courseManagementPane, #InstructorManagementPane, #StudentManagementPane {
+    -fx-background-color: #f4f4f4;
+    -fx-padding: 10px;
+}
+
+/* Button container */
+.button-container {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+}
+
+/* Action buttons */
+.action-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px; /* Base size */
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-padding: 5 10;
+}
+
+.action-button:hover {
+    -fx-background-color: #45a049;
+}
+
+/* Close button */
+.closer {
+    -fx-background-color: #3D8B74;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px; /* Base size */
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-padding: 5 10;
+}
+
+.closer:hover {
+    -fx-background-color: #ff3547;
+    -fx-text-fill: white;
+}
+
+/* Form pane */
+.form-pane {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-padding: 20px;
+}
+
+/* Form label */
+.form-label {
+    -fx-font-size: 14px; /* Base size */
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+/* Form field */
+.form-field {
+    -fx-font-size: 14px; /* Base size */
+    -fx-padding: 5px;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-pref-height: 25px;
+    -fx-background-color: #ffffff;
+}
+
+/* Form button */
+.form-button {
+    -fx-background-color: #008CBA;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px; /* Base size */
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-padding: 5 10;
+}
+
+.form-button:hover {
+    -fx-background-color: #007B9E;
+}
+
+/* TextArea styling */
+.form-textarea {
+    -fx-font-size: 14px; /* Base size */
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #333333;
+}
